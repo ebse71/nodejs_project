@@ -1,0 +1,281 @@
+/* Allgemeines Layout für die Login-Seite */
+#login-page {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    background-color: #f0f0f0;
+}
+
+/* Container für die Login-Seite */
+#login-page .container {
+    display: flex;
+    height: 100vh;
+    flex-direction: row;
+}
+
+/* Linke Seite (Bild) */
+.left-side {
+    flex: 1;
+    background-color: #ececec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Bildanpassung */
+.login-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+/* Rechte Seite (Logo und Login-Formular) */
+.right-side {
+    flex: 1;
+    background-color: #ffffff;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Logo-Container */
+.logo-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Logo-Bild */
+.logo-image {
+    max-width: 150px;
+    height: auto;
+}
+
+/* Login-Formular-Container */
+.login-form-container {
+    width: 80%;
+    max-width: 400px;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Überschrift für das Formular */
+.login-form-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Eingabefelder im Formular */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Link für „Passwort vergessen“ */
+.forgot-password {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.forgot-password a {
+    text-decoration: none;
+    color: #0066cc;
+    font-size: 14px;
+}
+
+.form-check-label {
+    font-size: 12px;
+    color: #6c757d;
+    margin-left: 5px;
+    padding-top: 4px;
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+}
+
+/* Button zum Einloggen */
+.login-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #0066cc;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #005bb5;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+/* Media Queries */
+
+/* Für Bildschirme mit einer Breite von 768px oder kleiner (Handys) */
+@media (max-width: 768px) {
+
+    /* Layout für linke und rechte Seite auf Mobilgeräten */
+    #login-page .container {
+        flex-direction: column;
+    }
+
+    /* Linke Seite */
+    .left-side {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Rechte Seite */
+    .right-side {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Logo-Container */
+    .logo-container {
+        margin-top: 20px;
+		height:auto;
+    }
+}
+
+#role-selection-page {
+    background-color: #a2c2e0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container für die Rolle-Seite */
+#role-selection-page .container {
+    background-color: #b4d8a6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 80vw;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 30px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Stil für die runden Optionen */
+.role-option {
+    background-color: #f5a623;
+    color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 20px;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    margin: 20px;
+    position: relative;
+}
+
+/* Hover-Effekt für die runden Optionen */
+.role-option:hover {
+    transform: scale(1.1);
+}
+
+/* Stil für das Bild innerhalb der runden Optionen */
+.role-option img {
+    max-width: 90%;
+    height: auto;
+}
+
+/* Stil für die Rollen-Namen unter den runden Optionen */
+.role-option h3 {
+    margin-top: 10px;
+    position: absolute;
+    bottom: -30px;
+    width: 100%;
+    font-size: 18px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #6c757d;
+}
+
+.toggle-password i {
+    font-size: 1.2em;
+}
+
+/* Media Queries für die Rolle-Seite (768px oder kleiner) */
+@media (max-width: 768px) {
+
+    /* Container für die Rolle-Seite */
+    #role-selection-page .container {
+        height: 200vh;
+    }
+
+    .alert {
+        font-size: 14px;
+        padding: 10px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .alert-danger {
+        color: #a94442;
+        background-color: #f2dede;
+        border-color: #ebccd1;
+    }
+}

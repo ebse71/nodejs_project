@@ -1,0 +1,54 @@
+.teacher-form {
+    display: grid;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.teacher-form .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.teacher-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.teacher-form input[type="text"],
+.teacher-form input[type="email"],
+.teacher-form input[type="tel"],
+.teacher-form input[type="date"],
+.teacher-form input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.teacher-form .checkbox-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.teacher-form .checkbox-group label {
+    margin-bottom: 5px;
+}
+
+.btn-submit {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}

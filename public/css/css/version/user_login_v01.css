@@ -1,0 +1,228 @@
+/* Login-Seite allgemein */
+#login-page {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    background-color: #f0f0f0;
+}
+
+/* Container für die Login-Seite */
+#login-page .container {
+    display: flex; /* Flexbox verwenden */
+    height: 100vh;
+    flex-direction: row; /* Zeilenweise Darstellung */
+}
+
+/* Linke Seite (Bild) */
+.left-side {
+    flex: 1; /* Gleichmäßige Verteilung */
+    background-color: #ececec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Bild anpassen */
+.login-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+/* Rechte Seite (Logo und Login-Formular) */
+.right-side {
+    flex: 1; /* Gleichmäßige Verteilung */
+    background-color: #ffffff;
+    position: relative;
+    display: flex; /* Flexbox verwenden */
+    justify-content: center; /* Zentriert */
+    align-items: center; /* Zentriert */
+    flex-direction: column; /* Spaltenweise Darstellung */
+}
+
+/* Logo Container */
+.logo-container {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px; /* Yukarıdan boşluk */
+}
+
+/* Logo Bild */
+.logo-image {
+    max-width: 150px; /* Logonun maksimum genişliği */
+    height: auto;
+}
+
+/* Login-Formular Container */
+.login-form-container {
+    width: 80%;
+    max-width: 400px;
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 20px; /* Yukarıdan boşluk */
+}
+
+/* Form Başlığı */
+.login-form-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Giriş Formu Alanları */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Şifremi Unuttum Bağlantısı */
+.forgot-password {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.forgot-password a {
+    text-decoration: none;
+    color: #0066cc;
+    font-size: 14px;
+}
+
+/* Giriş Yap Butonu */
+.login-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #0066cc;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #005bb5;
+}
+
+/* Medya Abfragen */
+
+/* Bildschirmbreite 768px oder kleiner (Handys) */
+@media (max-width: 768px) {
+
+    /* Linke und rechte Seite für Handys */
+    #login-page .container {
+        flex-direction: column; /* Spaltenweise Darstellung */
+    }
+
+    /* Linke Seite */
+    .left-side {
+        width: 100%; /* Volle Breite */
+        height: auto; /* Automatische Höhe */
+    }
+
+    /* Rechte Seite */
+    .right-side {
+        width: 100%; /* Volle Breite */
+        height: auto; /* Automatische Höhe */
+    }
+
+    /* Logo Container */
+    .logo-container {
+        margin-top: 20px; /* Yukarıdan boşluk */
+		height:auto;
+    }
+}
+
+/* Role-Seite allgemein */
+#role-selection-page {
+    background-color: #a2c2e0; /* Pastellblau */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Vollständige Höhe */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container für die Rolle-Seite */
+#role-selection-page .container {
+    background-color: #b4d8a6; /* Pastellgrün */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Mittlere Höhe */
+    width: 80vw; /* Mittlere Breite */
+    gap: 20px; /* Abstand zwischen den runden Optionen */
+    flex-wrap: wrap; /* Erlaubt das Umfließen der runden Optionen */
+    padding: 30px; /* Etwas Abstand im Container */
+    box-sizing: border-box; /* Padding und Border zur Breite hinzufügen */
+    border-radius: 15px; /* Abgerundete Ecken */
+    box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.4); 
+}
+
+/* Stil für die runden Optionen */
+.role-option {
+    background-color: #f5a623; /* Pastellorange */
+    color: #fff; /* Schriftfarbe weiß */
+    border-radius: 50%; /* Runde Form */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Schatten */
+    text-align: center;
+    padding: 20px; /* Etwas Abstand innerhalb der runden Option */
+    width: 150px; /* Größe der runden Option */
+    height: 150px; /* Größe der runden Option */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease; /* Übergangseffekt bei Hover */
+    margin: 20px;
+    position: relative; /* Positionierung für den Text */
+}
+
+/* Hover-Effekt für die runden Optionen */
+.role-option:hover {
+    transform: scale(1.1); /* Vergrößert die Option beim Hover */
+}
+
+/* Stil für das Bild innerhalb der runden Optionen */
+.role-option img {
+    max-width: 90%; /* Maximale Breite des Bildes erhöht */
+    height: auto; /* Automatische Höhe */
+}
+
+/* Stil für die Rolle-Namen unter den runden Optionen */
+.role-option h3 {
+    margin-top: 10px; /* Abstand zwischen dem runden Element und dem Text */
+    position: absolute; /* Absolute Positionierung unterhalb des runden Elements */
+    bottom: -30px; /* Positionierung unterhalb des runden Elements */
+    width: 100%; /* Breite des Textes */
+    font-size: 18px; /* Schriftgröße */
+}
+/* Medya Abfragen für Role-Seite (768px oder kleiner) */
+@media (max-width: 768px) {
+
+    /* Container für die Rolle-Seite */
+    #role-selection-page .container {
+        height: 200vh; /* Zweimal größere Höhe */
+    }
+}

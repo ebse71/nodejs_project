@@ -1,0 +1,102 @@
+/* Genel Tablo Stilleri */
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px; /* Yazı boyutu küçültüldü */
+    text-align: left;
+    table-layout: fixed; /* Her sütunun genişliğini eşit hale getirir */
+    word-wrap: break-word; /* Uzun kelimeleri böler */
+}
+
+.user-table thead tr {
+    background-color: #3b77ac;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+.user-table th, .user-table td {
+    padding: 10px 12px; /* Hücre içi boşluklar küçültüldü */
+    border: 1px solid #dddddd; /* Hücreler arasına çizgi ekler */
+}
+
+.user-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+    line-height: 1.2; /* Satır yüksekliği azaltıldı */
+}
+
+.user-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.user-table tbody tr:last-of-type {
+    border-bottom: 2px solid #3b77ac;
+}
+
+.user-table tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Durum Sütunu İçin İkonlar */
+.user-table .status-active::before {
+    content: "●";
+    color: green;
+    margin-right: 5px;
+}
+
+.user-table .status-inactive::before {
+    content: "●";
+    color: red;
+    margin-right: 5px;
+}
+
+/* Mobil Cihazlar için Özel Stil */
+@media (max-width: 768px) {
+    /* Mobil cihazlar için özel stil */
+    .user-table {
+        width: 100%;
+        display: block;
+        overflow-x: auto; /* Yatay kaydırma ekleyebilir */
+        table-layout: auto; /* Mobilde sütun genişlikleri otomatik ayarlanır */
+    }
+
+    .user-table thead {
+        display: table-header-group; /* Thead kısmını tablo başlığı olarak tutar */
+    }
+
+    .user-table thead th {
+        padding: 8px; /* Başlık hücrelerinde padding küçültüldü */
+        background-color: #3b77ac;
+        color: white;
+        text-align: left;
+        font-size: 14px; /* Başlık yazı boyutu küçültüldü */
+    }
+
+    .user-table tbody {
+        display: table-row-group; /* Tbody kısmını normal tablo gibi gösterir */
+    }
+
+    .user-table tbody tr {
+        display: table-row; /* Satırlar normal tablo satırı gibi görünür */
+        margin-bottom: 10px;
+    }
+
+    .user-table tbody tr td {
+        display: table-cell; /* Hücreler normal tablo hücresi gibi görünür */
+        text-align: left;
+        padding: 8px; /* Hücre içi padding küçültüldü */
+        border-bottom: 1px solid #dddddd;
+        white-space: nowrap; /* Verinin alt alta düşmesini önler */
+        overflow: hidden; /* Taşan veriyi gizler */
+        text-overflow: ellipsis; /* Taşan veriyi üç nokta ile gösterir */
+        font-size: 14px; /* Mobilde yazı boyutu küçültüldü */
+    }
+
+    .user-table .status-active::before, .user-table .status-inactive::before {
+        font-size: 16px; /* Mobilde durum ikonlarının boyutu küçültüldü */
+        vertical-align: middle;
+    }
+}
+

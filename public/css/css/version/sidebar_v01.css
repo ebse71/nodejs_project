@@ -1,0 +1,59 @@
+.sidebar {
+    width: 250px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    box-shadow: inset -2px 0 5px rgba(0, 0, 0, 0.1), 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Menü Listeleme */
+.sidebar ul.menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul.menu li.item {
+    margin-bottom: 10px;
+}
+
+.sidebar ul.menu li.item a {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: left;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul.menu li.item a i {
+    width: 30px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.sidebar ul.menu li.item a span {
+    flex-grow: 1;
+}
+
+.sidebar ul.menu li.item a:hover {
+    background-color: #F2EBEB;
+}
+
+/* Mobil Cihazlar İçin */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%); /* Sidebar'ı başlangıçta gizle */
+        position: fixed;
+        left: 0;
+        height: 100%;
+        transition: transform 0.3s ease; /* Yumuşak açılıp kapanma */
+        z-index: 9999; /* Sidebar'ı en üstte göstermek için z-index artırıldı */
+    }
+
+    .sidebar.open {
+        transform: translateX(0); /* Sidebar açıldığında ekranın solunda görünsün */
+    }
+}

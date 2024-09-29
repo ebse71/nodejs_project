@@ -1,0 +1,207 @@
+/* Genel stil ayarları */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #3b77ac;
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.school-logo {
+    height: 50px;
+}
+
+.user-info {
+    font-size: 16px;
+    margin-left: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+    text-align: right;
+}
+
+.wrapper {
+	width: 100%;
+    margin-top: 120px;
+    max-width: 1200px;
+    background-color: #ffffff;
+    min-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.page-title {
+	font-family:open Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+    text-align: center;
+    color: #777474;
+    font-size: 24px;
+    margin: 20px 0;
+    font-weight:100;
+}
+
+.main-container {
+    display: flex;
+    flex-grow: 1;
+    margin: 0;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    border: 1px solid #d0d0d0;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 0px 0 0 10px;
+    box-shadow: inset -2px 0 5px rgba(0, 0, 0, 0.1), 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-toggle {
+    display: block;
+    margin-bottom: 20px;
+    background-color: #3b77ac;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    z-index: 1100; /* Üst katman */
+}
+
+ .content-toggle {
+    display: none !important;
+    margin-bottom: 20px;
+    background-color: #3b77ac;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    z-index: 1100; /* Üst katman */
+}
+
+.menu .btn {
+    display: block;
+    padding: 10px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    color: #000;
+    text-decoration: none;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.menu .submenu {
+    background: #ced4da;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
+    border-radius: 5px;
+}
+
+.menu .submenu a {
+    display: block;
+    padding: 10px;
+    background-color: #ced4da;
+    border-radius: 5px;
+    color: #000;
+    text-decoration: none;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.content {
+    flex-grow: 1;
+    background-color: #e3f2fd;
+    padding: 30px;
+    border-radius: 0 0px 10px 0;
+    box-shadow: inset 2px 0 5px rgba(0, 0, 0, 0.1), -2px 0 5px rgba(0, 0, 0, 0.1);
+    border-left: 1px solid #d0d0d0;
+    position: relative; /* Content'in göreceli pozisyonu */
+    border: 1px solid #d0d0d0;
+}
+
+.content::before {
+    content: "";
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
+    border: 2px solid #b0b0b0; /* Çerçeve rengini ve kalınlığını ayarlayabilirsiniz */
+    border-radius: 5px; /* İç çerçevenin köşelerini yuvarlayabilirsiniz */
+}
+
+
+/* Mobil cihazlar için stil */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 50%; /* Sidebar genişliği yarıya indirildi */
+        transform: translateX(-100%);
+        position: fixed;
+        z-index: 1000;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .sidebar-toggle {
+        display: none; /* Masaüstü görünümde sidebar butonunu gizle */
+    }
+
+    .content-toggle {
+        display: block !important;
+        background-color: #3b77ac;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        padding: 15px 0;
+        margin-bottom: 10px;
+        z-index: 1000;
+        width: 50px;
+        position: absolute;
+        top: 0px;
+        left: 0;
+    }
+
+    .sidebar h2 {
+        display: none;
+    }
+
+    .content {
+        width: 100%;
+        margin: 0;
+        overflow-x: auto; /* Mobilde yatay kaydırma */
+        min-width: fit-content; /* Mobilde genişleme */
+    }
+	.school-logo{
+		height: 20px;
+	}
+}

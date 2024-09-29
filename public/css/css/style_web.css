@@ -1,0 +1,112 @@
+/* Allgemeine Stilvorgaben */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #3b77ac;
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.school-logo {
+    height: 50px;
+}
+
+.user-info {
+    font-size: 16px;
+    margin-left: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+    text-align: right;
+}
+
+.wrapper {
+    width: 100%;
+    margin-top: 120px;
+    max-width: 1200px;
+    background-color: #ffffff;
+    min-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.page-title {
+    text-align: center;
+    color: #1a60b5;
+    font-size: 24px;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+.main-container {
+    display: flex;
+    flex-grow: 1;
+    margin: 0;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    border: 1px solid #d0d0d0;
+}
+
+.content {
+    flex-grow: 1;
+    background-color: #e3f2fd;
+    padding: 20px;
+    border-radius: 0 0px 10px 0;
+    box-shadow: inset 2px 0 5px rgba(0, 0, 0, 0.1), -2px 0 5px rgba(0, 0, 0, 0.1);
+    border-left: 1px solid #d0d0d0;
+}
+
+#menu-button {
+    display: none; /* Menü-Button standardmäßig ausgeblendet */
+}
+
+/* Stil für mobile Geräte */
+@media (max-width: 768px) {
+    #menu-button {
+        display: block;
+        position: fixed;
+        top: 90px;
+        left: 10px;
+        background-color: #5A5A5A; /* Dunklere Farbe für Button */
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        z-index: 1100;
+        width: 60px;
+        height: 30px;
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 15px; /* Text vertikal zentrieren */
+        text-align: center; /* Text horizontal zentrieren */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* 3D-Effekt */
+        border-radius: 8px; /* Abgerundete Ecken */
+        background-image: linear-gradient(to bottom, #6E6E6E, #3B3B3B); /* 3D-Effekt durch Verlauf */
+    }
+
+    .top-header, .header, .main-container {
+        flex-direction: column;
+    }
+}

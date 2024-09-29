@@ -1,0 +1,73 @@
+.sidebar {
+    width: auto; /* Feste Breite entfernt */
+    background-color: #f8f9fa;
+    padding: 20px;
+    box-shadow: inset -2px 0 5px rgba(0, 0, 0, 0.1), 2px 0 5px rgba(0, 0, 0, 0.1);
+    white-space: nowrap; /* Text in einer Zeile belassen */
+}
+
+.sidebar ul.menu li.item {
+    margin-bottom: 10px;
+}
+
+.sidebar ul.menu li.item a {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: #f8f9fa;
+    color: black;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: left;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+
+.sidebar ul.menu li.item a span {
+    flex-grow: 1;
+}
+
+
+.sidebar ul.menu li.item a i {
+    width: 30px; /* Sabit genişlik */
+    text-align: center; /* İkonları ortalar */
+    margin-right: 10px; /* İkon ile metin arasındaki boşluk */
+}
+
+/* Menülisten */
+.sidebar ul.menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul.menu li.item a span {
+    flex-grow: 1;
+}
+
+.sidebar ul.menu li.item a:hover {
+    background-color: #F2EBEB;
+}
+
+/* Für Mobilgeräte */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%); /* Sidebar initial versteckt */
+        position: fixed;
+        left: 0;
+        top: 120px; /* Ausrichtung mit Menübutton */
+        height: 450px; /* Flexiblere Höhe */
+        width: 250px; /* Breite angepasst */
+        transition: transform 0.3s ease; /* Sanftes Ein- und Ausblenden */
+        z-index: 9999; /* Sidebar nach vorne bringen */
+        box-shadow: inset -2px 0 5px rgba(0, 0, 0, 0.1), 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar.open {
+        transform: translateX(0); /* Sidebar sichtbar */
+    }
+
+    .sidebar h2 {
+        display: none;
+    }
+}

@@ -1,0 +1,92 @@
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #e9ecef;
+    margin-left: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.button-grid a {
+    display: block;
+    padding: 20px;
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.button-grid a:hover {
+    background-color: #C6D0F8;
+}
+
+.button-grid a i {
+    display: block;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.button-grid a {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.button-grid a.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.veli-icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.veli-icon-wrapper i {
+    margin-right: 5px;
+}
+/* Küçük ikon boyutlandırması */
+.veli-icon-wrapper i.small-icon {
+    font-size: 20px !important; /* Küçük ikon boyutunu belirler */
+}
+
+.small-icon {
+    font-size: 0.5em;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+/* Başlangıçta içerik görünmez ve yukarıdan aşağıya doğru hafif bir hareketle gelir */
+.content-transition {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Yüklendikten sonra içerik tam görünür hale gelir ve hareket sıfırlanır */
+.content-transition.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+#content-area {
+    flex: 1; /* İçerik alanı esnek olacak ve artan boşluğu kaplayacak */
+    overflow-y: auto;
+    transition: min-height 0.5s ease;
+}

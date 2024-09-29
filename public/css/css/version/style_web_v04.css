@@ -1,0 +1,136 @@
+/* Genel stil ayarları */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #3b77ac;
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.school-logo {
+    height: 50px;
+}
+
+.user-info {
+    font-size: 16px;
+    margin-left: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+    text-align: right;
+}
+
+.wrapper {
+    width: 100%;
+    margin-top: 120px;
+    max-width: 1200px;
+    background-color: #ffffff;
+    min-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.page-title {
+    text-align: center;
+    color: #1a60b5;
+    font-size: 24px;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+.main-container {
+    display: flex;
+    flex-grow: 1;
+    margin: 0;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    border: 1px solid #d0d0d0;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 0px 0 0 10px;
+    box-shadow: inset -2px 0 5px rgba(0, 0, 0, 0.1), 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+    flex-grow: 1;
+    background-color: #e3f2fd;
+    padding: 20px;
+    border-radius: 0 0px 10px 0;
+    box-shadow: inset 2px 0 5px rgba(0, 0, 0, 0.1), -2px 0 5px rgba(0, 0, 0, 0.1);
+    border-left: 1px solid #d0d0d0;
+}
+
+#menu-button {
+    display: none; /* Menü butonunu varsayılan olarak gizle */
+}
+
+
+/* Mobil cihazlar için stil */
+@media (max-width: 768px) {
+    #menu-button {
+        display: block;
+        position: fixed;
+        top: 40px;
+        left: 10px;
+        background-color: #A6A1A1;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        z-index: 1100;
+        width: 40px;
+        height: 40px;
+        font-size: 12px;
+        line-height: 1;
+    }
+
+    .top-header, .header, .main-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        transform: translateX(-100%); /* Sidebar başlangıçta gizli */
+        position: fixed;
+        left: 0;
+        top: 50px; /* Menü butonuyla hizalı olacak şekilde ayarlandı */
+        height: calc(100% - 60px); /* Sidebar'ın yüksekliği daha esnek hale getirildi */
+        width: 180px; /* Sağdan 80px boşluk bırakacak şekilde ayarlandı */
+        transition: transform 0.3s ease; /* Yumuşak açılıp kapanma */
+        z-index: 9999; /* Sidebar'ı en üstte göstermek için z-index artırıldı */
+        box-shadow: inset -2px 0 5px rgba(0, 0, 0, 0.1), 2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar.open {
+        transform: translateX(0); /* Sidebar açıldığında ekranın solunda görünsün */
+    }
+
+    .sidebar h2 {
+        display: none;
+    }
+}

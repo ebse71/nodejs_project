@@ -1,0 +1,181 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lehrer Hinzufügen</title>
+    <style>
+        .teacher-form {
+            display: grid;
+            gap: 15px;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+            .teacher-form .form-group {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .teacher-form label {
+                margin-bottom: 5px;
+                font-weight: bold;
+            }
+
+            .teacher-form input[type="text"],
+            .teacher-form input[type="email"],
+            .teacher-form input[type="tel"],
+            .teacher-form input[type="date"] {
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                font-size: 16px;
+            }
+
+            .teacher-form .checkbox-group {
+                display: flex;
+                flex-direction: column;
+            }
+
+                .teacher-form .checkbox-group label {
+                    margin-bottom: 5px;
+                }
+
+        .btn-submit {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+            .btn-submit:hover {
+                background-color: #0056b3;
+            }
+
+        .message {
+            margin: 15px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .highlight-error {
+            border-color: red;
+        }
+        /* Kırmızı çerçeve */
+        .error-input {
+            border: 2px solid red;
+        }
+
+        /* Hata mesajı */
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h2>Lehrer Hinzufügen</h2>
+        <!-- Hata ve başarı mesajları için alanlar -->
+        <div id="message" class="message" style="display:none;"></div>
+
+        <form id="teacherForm" class="teacher-form">
+            <div class="form-group">
+                <label for="name">Vorname:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="surname">Nachname:</label>
+                <input type="text" id="surname" name="surname" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-Mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="branch">Fachrichtung:</label>
+                <input type="text" id="branch" name="branch" required>
+            </div>
+            <div class="form-group">
+                <label for="additional_branch">Zusätzliches Fach (Optional):</label>
+                <input type="text" id="additional_branch" name="additional_branch">
+            </div>
+            <div class="form-group">
+                <label for="birth_date">Geburtsdatum:</label>
+                <input type="date" id="birth_date" name="birth_date" required>
+            </div>
+            <div class="form-group">
+                <label for="phone_number_1">Kontakt Nummer 1:</label>
+                <input type="tel" id="phone_number_1" name="phone_number_1" required>
+            </div>
+            <div class="form-group">
+                <label for="phone_number_2">Kontakt Nummer 2 (Optional):</label>
+                <input type="tel" id="phone_number_2" name="phone_number_2">
+            </div>
+            <button type="submit" class="btn-submit">Lehrer Hinzufügen</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('teacherForm').addEventListener('submit', async (event) => {
+            event.preventDefault(); // Sayfanın yeniden yüklenmesini engelle
+
+            const formData = new FormData(event.target);
+            const jsonData = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('/teacher/add', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(jsonData),
+                });
+
+                const result = await response.json();
+                const messageDiv = document.getElementById('message');
+
+                if (response.status === 400 && result.errors) {
+                    // E-posta alanını vurgula
+                    if (result.errors.includes('Diese E-Mail-Adresse ist bereits registriert.')) {
+                        document.getElementById('email').classList.add('highlight-error');
+                    }
+
+                    messageDiv.className = 'message error';
+                    messageDiv.innerHTML = result.errors.join('<br>');
+                    messageDiv.style.display = 'block';
+                } else if (result.status === 'success') {
+                    messageDiv.className = 'message success';
+                    messageDiv.innerHTML = result.message;
+                    messageDiv.style.display = 'block';
+
+                    // Başarılı olunca formu sıfırla
+                    event.target.reset();
+                    document.getElementById('email').classList.remove('highlight-error');
+                }
+            } catch (error) {
+                console.error('Fehler beim Hinzufügen des Lehrers:', error);
+            }
+        });
+    </script>
+</body>
+</html>

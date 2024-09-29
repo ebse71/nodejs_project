@@ -1,0 +1,11 @@
+Proje, bir okul yönetim sistemi için güvenli ve verimli bir web uygulaması geliştirmek üzerine odaklandı. Node.js ile yazılmış olan bu uygulamada, Express.js framework'ü kullanarak RESTful API'ler oluşturuldu. Kullanıcıların şifrelerini güvenli bir şekilde saklamak için bcrypt kütüphanesinden yararlanildi. Bu sayede şifreler, veritabanında hashlenmiş olarak depolanıyor ve kullanıcı bilgileri koruma altına alınıyor.
+
+Veritabanı olarak PostgreSQL tercih edildi. Kullanıcı olarak Admin, öğretmenler,ögrenciler ve velilerin bilgileriyle, şifre sıfırlama işlemleri için gerekli tüm bilgileri saklayan çeşitli tablolar oluşturuldu. User Model kisminda CRUD islemlerinin hepsi kullanildi(createUser,getUserByEmail,updateUserToken,deletePasswordResetToken)Veritabani servisi olarak Supabase kullanildi.. Proje yapısında, public ve private dosyaların ayrımına dikkat edildi. Public klasöründe, HTML ve CSS dosyaları bulunurken, özel bilgiler (örneğin, .env dosyası) private klasörde tutuldu.
+
+Kullanıcıların şifrelerini unuttuklarında hızlı bir şekilde şifre sıfırlama işlemi yapabilmeleri için bir e-posta doğrulama sistemi geliştirildi. Bu sistem, kullanıcıların e-posta adreslerine gönderilen bir bağlantı aracılığıyla şifrelerini sıfırlamalarına olanak tanıyor.Güvenlik için token’lar çerezlerde saklandı ve httpOnly olarak ayarlandı. Token doğrulama işlemlerinde JWT (JSON Web Token) kullanildi, böylece token'ın geçerliliğini kontrol ederek güvenliği artırildi.
+
+Uygulama, kullanıcı dostu bir arayüze sahip. Kullanıcılar şifre sıfırlama isteği gönderdiklerinde, e-posta ile gelen bağlantıya tıklayarak yeni şifrelerini belirleyebiliyorlar. Tüm bu süreçte, kullanıcı deneyimini artırmak için responsive tasarımlar ve hoş görseller kullanildi.
+
+Son olarak, uygulama güvenliği için çeşitli önlemler alindi. Kullanıcı bilgilerini Bcrypt ile sifrelemek dışında, tüm API isteklerini HTTPS üzerinden gerçekleştirildi. Ayrıca, veri doğrulama ve hata yönetimi süreçlerine dikkat ederek potansiyel güvenlik açıklarını minimize edildi.
+
+Bu projede yaptıklarımız, Node.js ile modern web uygulamalarının nasıl geliştirileceğine dair iyi bir örnek teşkil ediyor. Kullanilan teknolojiler ve güvenlik önlemleri ile sağlam bir temel oluşturuldu.

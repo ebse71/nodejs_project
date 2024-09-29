@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Üçüncü Parti Servis Kullanıcı Bilgileri</title>
+    <link rel="stylesheet" href="/css/dritte.css">
+</head>
+<body>
+    <h1 id="providerTitle">Üçüncü Parti Servis Kullanıcı Bilgileri</h1>
+    <form id="userInfoForm">
+        <label for="providerId">Kullanıcı ID:</label>
+        <input type="text" id="providerId" name="providerId" readonly>
+
+        <label for="login">Kullanıcı Adı:</label>
+        <input type="text" id="login" name="login" readonly>
+
+        <label for="name">Ad:</label>
+        <input type="text" id="name" name="name" readonly>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" readonly>
+
+        <label for="avatarUrl">Profil Resmi URL:</label>
+        <input type="text" id="avatarUrl" name="avatarUrl" readonly>
+
+        <label for="profileUrl">Profil URL:</label>
+        <input type="text" id="profileUrl" name="profileUrl" readonly>
+
+        <button type="submit">Tamam</button>
+    </form>
+
+    <script>
+        // URL parametrelerini al
+        const urlParams = new URLSearchParams(window.location.search);
+        const provider = urlParams.get('provider');  // Hangi sağlayıcıdan gelindiğini alıyoruz
+        const providerId = urlParams.get('id');
+        const name = urlParams.get('name');
+        const email = urlParams.get('email');
+        const avatarUrl = urlParams.get('avatar_url');
+        const profileUrl = urlParams.get('profile_url');
+
+        // Sağlayıcıya göre başlığı güncelle
+        if (provider) {
+            document.getElementById('providerTitle').textContent = provider + ' Kullanıcı Bilgileri';
+        }
+
+        // Form alanlarını doldur
+        document.getElementById('providerId').value = providerId;
+        document.getElementById('login').value = name;
+        document.getElementById('name').value = name;
+        document.getElementById('email').value = email;
+        document.getElementById('avatarUrl').value = avatarUrl;
+        document.getElementById('profileUrl').value = profileUrl;
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/auth.css">
+    <title>İki Faktörlü Doğrulama</title>
+</head>
+<body>
+    <div class="auth-container">
+        <h1>Lütfen bir doğrulama yöntemi seçiniz</h1>
+        <form id="auth-form">
+            <div class="verification-method-container">
+                <label>
+                    <input type="radio" name="auth-method" value="email" checked> E-Mail
+                </label>
+                <label>
+                    <input type="radio" name="auth-method" value="sms"> SMS
+                </label>
+            </div>
+
+            <button type="button" id="send-code-btn">Kodu Gönder</button>
+        </form>
+
+        <div class="code-input" id="code-input-container" style="display: none;">
+            <label for="verification-code">Lütfen kodu buraya yazınız:</label>
+            <input type="text" id="verification-code" maxlength="5" placeholder="Kod">
+            <button type="button" id="verify-btn">Doğrula</button>
+            <p id="timer">Kalan süre: <span id="countdown">30</span> saniye</p>
+            <button type="button" id="resend-code-btn" style="display: none;">Kodu Tekrar Gönder</button>
+        </div>
+    </div>
+
+    <script src="../js/verification.js"></script>
+
+</body>
+</html>

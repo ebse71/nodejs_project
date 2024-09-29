@@ -1,0 +1,172 @@
+/nodejs_project
+│
+├── /public                    # Tarayıcı tarafından erişilebilen dosyalar
+│   ├── /pages                 # HTML dosyalarının bulunduğu klasör
+│   │   ├── reset_password.html      # Şifre sıfırlama sayfası
+│   │   ├── user_login.html           # Kullanıcı giriş sayfası
+│   │   ├── form_add_teacher.html     # Öğretmen ekleme sayfası
+│   │   ├── admin_panel.html          # Admin paneli sayfası
+│   │   └── form_reset_link.html      # Şifre sıfırlama linki formu sayfası
+│   ├── /css                   # CSS dosyalarının bulunduğu klasör
+│   │   ├── reset_password.css        # Şifre sıfırlama sayfasının stil dosyası
+│   │   ├── user_login.css            # Kullanıcı giriş sayfasının stil dosyası
+│   │   ├── form_add_teacher.css      # Öğretmen ekleme sayfasının stil dosyası
+│   │   └── admin_panel.css           # Admin panelinin stil dosyası
+│   │   ├── sidebar.css               # Sidebar (yan menü) stil dosyası
+│   │   └── style_web.css             # Genel web sayfası stilleri (tüm sayfalarda ortak kullanılabilir)
+│   └── /js                    # Frontend'de kullanılan JavaScript dosyaları
+│       ├── menu.js                 # Menü ile ilgili işlemler (admin paneli menüsü)
+│       ├── password_validation.js   # Şifre validasyonu işlemleri (şifre kurallarını kontrol eder)
+│       └── form_add_teacher.js      # Öğretmen ekleme formundaki validasyon ve işlemler
+│
+├── /src                       # Server-side dosyaların yer aldığı ana klasör
+│   ├── /config                # Proje yapılandırma dosyaları (örneğin veritabanı ayarları)
+│   │   └── db.js              # Veritabanı bağlantısı ile ilgili ayarlar (PostgreSQL bağlantısı)
+│   ├── /routes                # API endpoint'lerinin bulunduğu klasör
+│   │   ├── login.js           # Login işlemleriyle ilgili route (giriş işlemleri)
+│   │   ├── resetPassword.js   # Şifre sıfırlama işlemleriyle ilgili route
+│   │   ├── teacher.js         # Öğretmen işlemleriyle ilgili route (öğretmen ekleme vb.)
+│   │   └── admin.js           # Admin işlemleriyle ilgili route (admin paneli işlemleri)
+│   ├── /utils                 # Yardımcı fonksiyonlar ve genel kullanılabilir dosyalar
+│   │   └── functions.js       # Genel kullanılabilir fonksiyonlar (örneğin token üretimi, email gönderme)
+│   ├── /controllers           # İşlemleri gerçekleştiren fonksiyonlar
+│   │   ├── userController.js  # Kullanıcı işlemlerini kontrol eden fonksiyonlar (giriş vb.)
+│   │   ├── teacherController.js  # Öğretmen işlemleriyle ilgili fonksiyonlar
+│   │   └── adminController.js # Admin paneli işlemleri ile ilgili fonksiyonlar
+│   ├── /models                # Veritabanı sorguları ve modeller (örneğin kullanıcı modeli)
+│   │   ├── userModel.js       # Veritabanındaki kullanıcı işlemleriyle ilgili sorgular
+│   │   ├── teacherModel.js    # Öğretmen işlemleriyle ilgili sorgular
+│   │   └── adminModel.js      # Admin işlemleriyle ilgili sorgular
+│   └── /middleware            # Middleware dosyaları (kimlik doğrulama gibi)
+│       └── auth.js            # Kimlik doğrulama işlemleri (JWT kontrolü gibi)
+│
+├── .env                       # Çevre değişkenlerinin tutulduğu dosya (örneğin veritabanı bilgileri)
+├── .gitignore                 # Git'e dahil edilmemesi gereken dosya ve klasörler (örneğin .env)
+├── package.json               # Node.js projesi yapılandırma dosyası, bağımlılıklar burada tutulur
+└── server.js                  # Proje ana dosyası, sunucuyu başlatan dosya (express sunucusu)
+
+Açıklamalar:
+public/: Bu klasör tarayıcı tarafından erişilebilir dosyaları içerir. HTML, CSS, ve JavaScript dosyaları burada bulunur.
+
+src/: Sunucu tarafı kodlarının bulunduğu klasör. Burada veritabanı bağlantıları, API endpoint'leri ve iş mantığını oluşturan dosyalar bulunur.
+
+config/: Veritabanı ve diğer yapılandırma dosyaları burada tutulur.
+
+routes/: API endpoint'lerinin tanımlandığı dosyalar. Her bir dosya belirli bir işlemi gerçekleştirir (giriş, şifre sıfırlama, öğretmen işlemleri vb.).
+
+utils/: Yardımcı fonksiyonların bulunduğu yer. Örneğin, token üretimi veya şifre doğrulama işlemleri.
+
+controllers/: İş mantığını kontrol eden ve veritabanı modellerini kullanan fonksiyonlar.
+
+models/: Veritabanı işlemlerinin yer aldığı dosyalar. Her model, ilgili veritabanı tablosuyla çalışır.
+
+middleware/: Ortak işlemler için kullanılan ara katman dosyaları. Örneğin, kullanıcı doğrulama işlemleri burada yapılır.
+
+
+1) /public/pages/reset_password.html:
+
+Şifre sıfırlama işlemi için kullanılan HTML sayfası. Kullanıcıların şifrelerini sıfırlayabilmesi için gerekli formu içerir.
+
+2) /public/pages/user_login.html:
+
+Kullanıcı girişi için kullanılan HTML sayfası. Kullanıcıların giriş yapabilmesi için e-posta ve şifre girmeleri gereken formu içerir.
+
+3) /public/pages/form_add_teacher.html:
+
+Öğretmen ekleme işlemi için kullanılan HTML sayfası. Adminlerin yeni öğretmenler ekleyebilmesi için gerekli formu içerir.
+
+4) /public/pages/admin_panel.html:
+
+Admin paneli için kullanılan HTML sayfası. Adminlerin çeşitli yönetim işlevlerini gerçekleştirebileceği bir arayüz sağlar.
+
+5) /public/pages/form_reset_link.html:
+
+Şifre sıfırlama bağlantısı için kullanılan HTML sayfası. Kullanıcıların şifre sıfırlama bağlantısını alabileceği formu içerir.
+
+6) /public/css/reset_password.css:
+
+Şifre sıfırlama sayfasının stil dosyası. Sayfanın görünümünü ve tasarımını belirler.
+
+7) /public/css/user_login.css:
+
+Kullanıcı giriş sayfasının stil dosyası. Sayfanın görünümünü ve tasarımını belirler.
+
+8) /public/css/form_add_teacher.css:
+
+Öğretmen ekleme sayfasının stil dosyası. Sayfanın görünümünü ve tasarımını belirler.
+
+9) /public/css/admin_panel.css:
+
+Admin panelinin stil dosyası. Admin panelinin görünümünü ve tasarımını belirler.
+
+10) /public/css/sidebar.css:
+
+Yan menü (sidebar) için stil dosyası. Yan menünün tasarımını ve görünümünü belirler.
+
+11) /public/css/style_web.css:
+
+Genel web sayfası stillerini içeren dosya. Tüm sayfalarda ortak kullanılabilir stil kurallarını içerir.
+
+12) /public/js/menu.js:
+
+Menü ile ilgili JavaScript dosyası. Admin panelindeki menünün işlevselliğini sağlar.
+
+13) /public/js/password_validation.js:
+
+Şifre validasyon işlemleri için JavaScript dosyası. Şifre kurallarını kontrol eder ve doğrular.
+
+14) /public/js/form_add_teacher.js:
+
+Öğretmen ekleme formundaki validasyon ve işlemler için JavaScript dosyası. Formun doğru bir şekilde doldurulmasını sağlar.
+
+15) /src/config/db.js:
+
+Veritabanı bağlantısı ile ilgili ayarlar. PostgreSQL veritabanına bağlanmak için gerekli konfigürasyonları içerir.
+
+16) /src/routes/login.js:
+
+Kullanıcı girişi ile ilgili API endpoint'lerini tanımlar. Kullanıcı giriş işlemlerini işler ve yanıtlar.
+
+17) /src/routes/resetPassword.js:
+
+Şifre sıfırlama ile ilgili API endpoint'lerini tanımlar. Kullanıcıların şifrelerini sıfırlama işlemlerini yönetir.
+
+18) /src/routes/teacher.js:
+
+Öğretmen işlemleri ile ilgili API endpoint'lerini tanımlar. Öğretmen ekleme ve diğer öğretmen işlemlerini yönetir.
+
+19) /src/routes/admin.js:
+
+Admin paneli ile ilgili API endpoint'lerini tanımlar. Admin işlemleri ve yönetim fonksiyonlarını içerir.
+
+20) /src/utils/functions.js:
+
+Genel kullanılabilir yardımcı fonksiyonları içerir. Token üretimi, e-posta gönderimi gibi işlemleri sağlar.
+
+21) /src/controllers/userController.js:
+
+Kullanıcı işlemlerini kontrol eden ve iş mantığını yöneten fonksiyonları içerir. Kullanıcı girişi, şifre sıfırlama gibi işlemleri gerçekleştirir.
+
+22) /src/controllers/teacherController.js:
+
+Öğretmen işlemleri ile ilgili iş mantığını yöneten fonksiyonları içerir. Öğretmen ekleme ve düzenleme işlemlerini gerçekleştirir.
+
+23) /src/controllers/adminController.js:
+
+Admin paneli işlemleri ile ilgili iş mantığını yöneten fonksiyonları içerir. Admin işlemleri ve yönetim görevlerini gerçekleştirir.
+
+24) /src/models/userModel.js:
+
+Kullanıcı ile ilgili veritabanı sorgularını ve modellerini içerir. Kullanıcı bilgileri üzerinde CRUD işlemlerini yapar.
+
+25) /src/models/teacherModel.js:
+
+Öğretmen ile ilgili veritabanı sorgularını ve modellerini içerir. Öğretmen bilgileri üzerinde CRUD işlemlerini yapar.
+
+26) /src/models/adminModel.js:
+
+Admin ile ilgili veritabanı sorgularını ve modellerini içerir. Admin bilgileri üzerinde CRUD işlemlerini yapar.
+
+27) /src/middleware/auth.js:
+
+Kimlik doğrulama işlemlerini içerir. JWT kontrolü ve kullanıcı doğrulama işlemlerini gerçekleştirir.
